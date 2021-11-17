@@ -1,0 +1,11 @@
+﻿CREATE TABLE [dbo].[Sale] (
+    [Id] INT IDENTITY(1, 1) NOT NULL PRIMARY KEY,
+    [Data] DATE NULL,
+    [Count] INT NULL,
+    [ClientId] INT NULL,
+    [TripId] INT NULL,
+    [EmployeeId] INT NULL,
+    CONSTRAINT FK_Sale_Client FOREIGN KEY ([ClientId]) REFERENCES [dbo].[Client]([Id]) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT FK_Sale_Trip FOREIGN KEY ([TripId]) REFERENCES [dbo].[Trip]([Id]) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT FK_Sale_Employee FOREIGN KEY ([EmployeeId]) REFERENCES [dbo].[Employee]([Id]) ON DELETE CASCADE ON UPDATE CASCADE
+);
